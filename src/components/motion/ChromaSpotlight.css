@@ -1,0 +1,71 @@
+.chroma-spotlight {
+  position: relative;
+}
+
+.chroma-item {
+  position: relative;
+  isolation: isolate;
+}
+
+.chroma-item .pc-avatar-content {
+  transition: filter 0.45s ease;
+}
+
+.chroma-item.chroma-on .pc-avatar-content,
+.chroma-item:hover .pc-avatar-content {
+  mix-blend-mode: normal !important;
+}
+
+.chroma-item .avatar,
+.chroma-item .pc-mini-avatar img {
+  filter: grayscale(1) brightness(0.78) contrast(1.05);
+  transition: filter 0.45s ease;
+}
+
+.chroma-item.chroma-on .avatar,
+.chroma-item:hover .avatar,
+.chroma-item.chroma-on .pc-mini-avatar img,
+.chroma-item:hover .pc-mini-avatar img {
+  filter: grayscale(0) brightness(1.04) contrast(1) saturate(1.1);
+}
+
+.chroma-item .pc-inside::after,
+.chroma-item .pc-shine,
+.chroma-item .pc-glare {
+  transition: opacity 0.45s ease;
+}
+
+.chroma-item:not(.chroma-on) .pc-shine,
+.chroma-item:not(.chroma-on) .pc-glare {
+  opacity: 0.25;
+}
+
+.chroma-item-veil {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  mix-blend-mode: screen;
+  background: radial-gradient(
+    circle 190px at var(--hx, 50%) var(--hy, 50%),
+    rgba(255, 240, 255, 0.16) 0%,
+    rgba(255, 0, 202, 0.1) 45%,
+    transparent 72%
+  );
+}
+
+.chroma-item.chroma-on > .chroma-item-veil {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce), (hover: none) {
+  .chroma-item {
+    filter: none;
+  }
+  .chroma-item-veil {
+    display: none;
+  }
+}

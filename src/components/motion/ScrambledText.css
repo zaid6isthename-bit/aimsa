@@ -1,0 +1,9 @@
+.text-block .char {
+  will-change: transform;
+  display: inline-block;
+}
+
+.text-block .sc-word {
+  display: inline-block;
+  white-space: nowrap;
+}
