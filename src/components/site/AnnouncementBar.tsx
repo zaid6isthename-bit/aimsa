@@ -2,11 +2,23 @@ import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { X } from "lucide-react";
 import { activeAnnouncements } from "@/lib/content";
+import { copy } from "@/lib/cms/store";
 
 const KEY = "aimsa-announcement-dismissed";
 
 export function AnnouncementBar() {
-  const pinned = activeAnnouncements().find((a) => a.pinned);
+  const bannerText = copy("global.bannerText").trim();
+  const bannerHref = copy("global.bannerHref").trim();
+  const pinned = bannerText
+    ? {
+        id: `banner:${bannerText}`,
+        category: "Notice",
+        title: bannerText,
+        ctaHref: bannerHref || undefined,
+        ctaLabel: "Read more",
+        pinned: true,
+      }
+    : activeAnnouncements().find((a) => a.pinned);
   const [dismissed, setDismissed] = useState(true);
 
   useEffect(() => {

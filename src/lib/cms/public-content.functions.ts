@@ -34,6 +34,7 @@ export const getSiteContent = createServerFn({ method: "GET" }).handler(
       home: setting("home") as SiteContent["home"],
       about: setting("about") as SiteContent["about"],
       contact: setting("contact") as SiteContent["contact"],
+      copy: ((settings.data?.find((s) => s.key === "copy")?.value as Record<string, string> | undefined) ?? {}),
     };
   },
 );

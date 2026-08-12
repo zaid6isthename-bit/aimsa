@@ -3,7 +3,8 @@ import { Button } from "@/components/ui/button";
 import { PageHeader } from "@/components/site/PageHeader";
 import ProfileCard from "@/components/motion/ProfileCard";
 import ChromaSpotlight from "@/components/motion/ChromaSpotlight";
-import { currentAcademicYear, team, teamGroups } from "@/content/team";
+import { teamGroups } from "@/content/team";
+import { cmsTeam, copy } from "@/lib/cms/store";
 import { ArtBackdrop } from "@/components/site/ArtBackdrop";
 import artHotel from "@/assets/tiles/tile-4.jpg.asset.json";
 import { bgFor } from "@/assets/bg";
@@ -29,12 +30,13 @@ export const Route = createFileRoute("/team")({
 });
 
 function TeamPage() {
+  const team = cmsTeam();
   return (
     <>
       <PageHeader
-        eyebrow={`Academic year ${currentAcademicYear}`}
-        title="The people behind AIMSA"
-        intro="AIMSA is run by student office bearers and functional teams, with departmental faculty coordinators providing oversight. Names are published here as the department confirms each appointment."
+        eyebrow={`Academic year ${copy("team.academicYear")}`}
+        title={copy("team.title")}
+        intro={copy("team.intro")}
         breadcrumb={[{ label: "Home", to: "/" }, { label: "Team" }]}
       />
 
@@ -87,10 +89,8 @@ function TeamPage() {
         <section className="surface-card relative isolate flex flex-col items-start gap-5 overflow-hidden p-10 sm:flex-row sm:items-center sm:justify-between">
           <ArtBackdrop image={artHotel.url} opacity={0.8} position="center 45%" />
           <div>
-            <h2 className="text-2xl font-bold">Want a role on one of these teams?</h2>
-            <p className="mt-2 text-muted-foreground">
-              Functional teams take new members after orientation each year.
-            </p>
+            <h2 className="text-2xl font-bold">{copy("team.ctaTitle")}</h2>
+            <p className="mt-2 text-muted-foreground">{copy("team.ctaText")}</p>
           </div>
           <Button asChild variant="hero" size="lg">
             <Link to="/join">Register your interest</Link>

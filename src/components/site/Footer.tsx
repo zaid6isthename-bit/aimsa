@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
-import { Mail, MapPin } from "lucide-react";
+import { Lock, Mail, MapPin } from "lucide-react";
 import { navLinks, site } from "@/content/site";
+import { copy } from "@/lib/cms/store";
 import { publishedEvents } from "@/lib/content";
 import { Logo } from "./Logo";
 import footerArt from "@/assets/footer-art.png.asset.json";
@@ -25,9 +26,9 @@ export function Footer() {
       <div className="container-aimsa grid gap-12 py-20 md:grid-cols-2 lg:grid-cols-4 lg:gap-10">
         <div className="space-y-4 lg:col-span-1">
           <Logo />
-          <p className="text-sm font-medium text-accent">{site.tagline}</p>
+          <p className="text-sm font-medium text-accent">{copy("global.tagline")}</p>
           <p className="text-sm leading-relaxed text-muted-foreground">
-            {site.fullName}, {site.college}, {site.campus}.
+            {copy("global.fullName")}, {copy("global.college")}, {copy("global.campus")}.
           </p>
         </div>
 
@@ -42,6 +43,16 @@ export function Footer() {
                 </Link>
               </li>
             ))}
+            <li className="pt-2">
+              <Link
+                to="/admin/login"
+                className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-foreground transition hover:border-primary hover:bg-primary/20 hover:text-primary"
+                data-cursor="Sign in"
+              >
+                <Lock className="size-3.5" aria-hidden="true" />
+                Member sign in
+              </Link>
+            </li>
           </ul>
         </nav>
 
@@ -106,9 +117,9 @@ export function Footer() {
       <div className="trace-divider" />
       <div className="container-aimsa flex flex-col items-center justify-between gap-3 py-6 text-xs text-muted-foreground sm:flex-row">
         <p>
-          © {new Date().getFullYear()} {site.name} · {site.college}
+          © {new Date().getFullYear()} {copy("global.name")} · {copy("global.college")}
         </p>
-        <p className="tracking-[0.16em] uppercase">{site.motto}</p>
+        <p className="tracking-[0.16em] uppercase">{copy("global.motto")}</p>
       </div>
     </footer>
   );

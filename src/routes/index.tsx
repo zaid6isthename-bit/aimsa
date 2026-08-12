@@ -43,6 +43,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { HorizontalScroller } from "@/components/motion/HorizontalScroller";
 import { StatCounter } from "@/components/motion/StatCounter";
 import { site } from "@/content/site";
+import { copy } from "@/lib/cms/store";
 import heroBg from "@/assets/hero-synthwave-v2.png.asset.json";
 import { team, teamGroups } from "@/content/team";
 
@@ -138,6 +139,10 @@ const whyPillars = [
 
 
 function Home() {
+  const heroTagline = copy("home.heroTagline");
+  const heroParts = heroTagline.split(/(?<=\.)\s+/);
+  const heroLine1 = heroParts[0] ?? heroTagline;
+  const heroLine2 = heroParts.slice(1).join(" ");
   const next = nextEvent();
   const flagship = publishedEvents().find((e) => e.featured);
   const latest = activeAnnouncements()[0];
@@ -184,7 +189,7 @@ function Home() {
           <div className="animate-rise">
             <p className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/70 px-3 py-1.5 text-xs font-medium tracking-wide text-muted-foreground">
               <span className="size-1.5 rounded-full bg-accent" aria-hidden="true" />
-              {site.eyebrow}
+              {copy("home.heroEyebrow")}
             </p>
 
             <div className="group relative mt-6" style={{ perspective: "900px" }}>
@@ -194,7 +199,7 @@ function Home() {
               >
                 <Shuffle
                   tag="h1"
-                  text="Think Beyond."
+                  text={heroLine1}
                   textAlign="left"
                   shuffleDirection="right"
                   duration={0.4}
@@ -211,7 +216,7 @@ function Home() {
                 />
                 <Shuffle
                   tag="p"
-                  text="Build Ahead."
+                  text={heroLine2}
                   textAlign="left"
                   shuffleDirection="right"
                   duration={0.45}
@@ -240,7 +245,7 @@ function Home() {
             </div>
 
             <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground">
-              {site.description}
+              {copy("home.heroDescription")}
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -442,7 +447,9 @@ function Home() {
               />
               <div className="relative grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Flagship event</p>
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+                    {copy("home.eventsTitle")}
+                  </p>
                   <h2 id="flagship-heading" className="mt-4 text-3xl font-bold sm:text-5xl">
                     {flagship.title}
                   </h2>
@@ -488,9 +495,9 @@ function Home() {
       <section className="container-aimsa section-y" aria-labelledby="events-heading">
         <SectionHeading
           id="events-heading"
-          eyebrow="Programme"
-          title="What AIMSA runs through the year"
-          intro="Formats are confirmed; official dates and venues are published here as the department approves them."
+          eyebrow={copy("home.programmesEyebrow")}
+          title={copy("home.programmesTitle")}
+          intro={copy("home.programmesIntro")}
           action={
             <Button asChild variant="quiet">
               <Link to="/events">
@@ -613,14 +620,13 @@ function Home() {
             <ArtBackdrop image={bgFor("home:showcase")} position="center 55%" />
             <GridHorizon className="opacity-60" />
             <div className="relative max-w-2xl">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Showcase</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+                {copy("home.projectsTitle")}
+              </p>
               <h2 id="projects-teaser" className="mt-4 text-3xl font-bold sm:text-5xl">
                 Student builds, in the open
               </h2>
-              <p className="mt-4 leading-relaxed text-muted-foreground">
-                The AIMSA project showcase lists real student systems — the stack, the team and the outcome. It
-                fills as members ship, and every entry carries its builders' names.
-              </p>
+              <p className="mt-4 leading-relaxed text-muted-foreground">{copy("home.projectsIntro")}</p>
               <div className="mt-7 flex flex-wrap gap-3">
                 <Magnetic>
                   <Button asChild variant="hero" size="lg" data-cursor="Open">
@@ -628,7 +634,7 @@ function Home() {
                   </Button>
                 </Magnetic>
                 <Button asChild variant="outline" size="lg">
-                  <Link to="/portal">Member portal</Link>
+                  <Link to="/join">Join AIMSA</Link>
                 </Button>
               </div>
             </div>
@@ -643,8 +649,8 @@ function Home() {
         <SectionHeading
           id="leadership-heading"
           eyebrow="Leadership"
-          title="Faculty coordinators and office bearers"
-          intro="Roles for the current academic year are listed below. Names appear here once the department confirms the appointments."
+          title={copy("home.teamTitle")}
+          intro={copy("home.teamIntro")}
           action={
             <Button asChild variant="quiet">
               <Link to="/team">
@@ -740,16 +746,11 @@ function Home() {
               aria-hidden="true"
             />
             <div className="relative mx-auto max-w-2xl">
-              <h2 className="text-3xl font-bold sm:text-4xl">
-                Your next breakthrough should not happen alone.
-              </h2>
-              <p className="mt-4 text-muted-foreground">
-                Joining AIMSA gives you a team to build with, people who will review your work honestly, and a
-                calendar of chances to test what you know.
-              </p>
+              <h2 className="text-3xl font-bold sm:text-4xl">{copy("home.joinTitle")}</h2>
+              <p className="mt-4 text-muted-foreground">{copy("home.joinIntro")}</p>
               <div className="mt-8 flex flex-wrap justify-center gap-3">
                 <Button asChild variant="hero" size="xl">
-                  <Link to="/join">Join AIMSA</Link>
+                  <Link to="/join">{copy("home.joinCtaLabel")}</Link>
                 </Button>
                 <Button asChild variant="outline" size="xl">
                   <Link to="/contact">Contact the Team</Link>

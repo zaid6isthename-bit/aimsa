@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Instagram, Linkedin, Mail, MapPin } from "lucide-react";
 import { PageHeader } from "@/components/site/PageHeader";
 import { InquiryForm } from "@/components/site/InquiryForm";
-import { site } from "@/content/site";
+import { copy, copyPairs } from "@/lib/cms/store";
 import { ArtBackdrop } from "@/components/site/ArtBackdrop";
 import artDock from "@/assets/tiles/tile-3.jpg.asset.json";
 
@@ -26,12 +26,14 @@ export const Route = createFileRoute("/contact")({
 });
 
 function ContactPage() {
+  const socials = copyPairs("contact.socials").map((s) => ({ label: s.title, href: s.detail }));
+  const email = copy("contact.email");
   return (
     <>
       <PageHeader
-        eyebrow="Contact"
-        title="Talk to the AIMSA core team"
-        intro="Collaboration proposals, speaking offers, sponsorship enquiries or a simple question — send it here and the core team will route it to the right person."
+        eyebrow={copy("contact.eyebrow")}
+        title={copy("contact.title")}
+        intro={copy("contact.intro")}
         breadcrumb={[{ label: "Home", to: "/" }, { label: "Contact" }]}
       />
 
@@ -45,27 +47,27 @@ function ContactPage() {
               <li className="flex gap-3">
                 <MapPin className="mt-0.5 size-4 shrink-0 text-accent" aria-hidden="true" />
                 <span>
-                  {site.contact.department}
+                  {copy("contact.department")}
                   <br />
-                  {site.college}
+                  {copy("global.college")}
                   <br />
-                  {site.contact.address}
+                  {copy("contact.address")}
                 </span>
               </li>
               <li className="flex gap-3">
                 <Mail className="mt-0.5 size-4 shrink-0 text-accent" aria-hidden="true" />
                 <span>
-                  {site.contact.email ? (
-                    <a href={`mailto:${site.contact.email}`} className="text-primary hover:underline">
-                      {site.contact.email}
+                  {email ? (
+                    <a href={`mailto:${email}`} className="text-primary hover:underline">
+                      {email}
                     </a>
                   ) : (
                     <span className="italic">Official email to be announced</span>
                   )}
                 </span>
               </li>
-              {site.socials.length ? (
-                site.socials.map((s) => (
+              {socials.length ? (
+                socials.map((s) => (
                   <li key={s.href} className="flex gap-3">
                     <Linkedin className="mt-0.5 size-4 shrink-0 text-accent" aria-hidden="true" />
                     <a href={s.href} className="text-primary hover:underline">
@@ -82,16 +84,13 @@ function ContactPage() {
             </ul>
           </div>
           <div className="surface-card p-7">
-            <h2 className="text-lg font-semibold">Response time</h2>
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              Messages are reviewed by the core team during term. Expect a reply within a few working days;
-              time-sensitive event queries are prioritised.
-            </p>
+            <h2 className="text-lg font-semibold">{copy("contact.responseTitle")}</h2>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{copy("contact.responseText")}</p>
           </div>
         </div>
 
         <div className="surface-card p-7 sm:p-9">
-          <h2 className="text-2xl font-bold">Send a message</h2>
+          <h2 className="text-2xl font-bold">{copy("contact.formTitle")}</h2>
           <p className="mt-2 text-sm text-muted-foreground">Fields marked with an asterisk are required.</p>
           <div className="mt-6">
             <InquiryForm kind="contact" />

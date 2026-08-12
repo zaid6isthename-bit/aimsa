@@ -683,6 +683,8 @@ const Hyperspeed = ({ effectOptions = DEFAULT_EFFECT_OPTIONS }: { effectOptions?
         this.hasValidSize = true;
       }
       initPasses() {
+        const gl = this.renderer?.getContext?.();
+        if (!gl || !gl.getContextAttributes?.()) return;
         this.renderPass = new RenderPass(this.scene, this.camera);
         this.bloomPass = new EffectPass(this.camera, new BloomEffect({ luminanceThreshold: 0.2, luminanceSmoothing: 0, resolutionScale: 1 }));
         const smaaPass = new EffectPass(this.camera, new SMAAEffect({ preset: SMAAPreset.MEDIUM }));
@@ -695,7 +697,11 @@ const Hyperspeed = ({ effectOptions = DEFAULT_EFFECT_OPTIONS }: { effectOptions?
       }
       loadAssets() { return Promise.resolve(); }
       init() {
-        this.initPasses();
+        try {
+          this.initPasses();
+        } catch {
+          // WebGL context unavailable — skip post-processing, keep the scene rendering.
+        }
         const options = this.options;
         this.road.init();
         this.leftCarLights.init();

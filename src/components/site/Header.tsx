@@ -13,7 +13,6 @@ const items: BubbleMenuItem[] = [
   { label: "Team", href: "/team", ariaLabel: "Team", rotation: 8, hoverStyles: { bgColor: "#8b5cf6", textColor: "#ffffff" } },
   { label: "Gallery", href: "/gallery", ariaLabel: "Gallery", rotation: 6, hoverStyles: { bgColor: "#00e5ff", textColor: "#05080f" } },
   { label: "Announcements", href: "/announcements", ariaLabel: "Announcements", rotation: -6, hoverStyles: { bgColor: "#ff2fd0", textColor: "#ffffff" } },
-  { label: "Portal", href: "/portal", ariaLabel: "Member portal", rotation: 8, hoverStyles: { bgColor: "#8b5cf6", textColor: "#ffffff" } },
   { label: "Contact", href: "/contact", ariaLabel: "Contact", rotation: -8, hoverStyles: { bgColor: "#00e5ff", textColor: "#05080f" } },
   { label: "Join AIMSA", href: "/join", ariaLabel: "Join AIMSA", rotation: 6, hoverStyles: { bgColor: "#ff2fd0", textColor: "#ffffff" } },
 ];

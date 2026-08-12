@@ -5,7 +5,8 @@ import { Button } from "@/components/ui/button";
 import { PageHeader } from "@/components/site/PageHeader";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { EmptyState } from "@/components/site/EmptyState";
-import { achievements, impactAreas, metrics } from "@/content/achievements";
+import { impactAreas as seedImpactAreas, metrics } from "@/content/achievements";
+import { cmsAchievements, copy, copyPairs } from "@/lib/cms/store";
 import { publishedEvents } from "@/lib/content";
 import { ArtBackdrop } from "@/components/site/ArtBackdrop";
 import artSwamp from "@/assets/tiles/tile-2.png.asset.json";
@@ -30,15 +31,23 @@ export const Route = createFileRoute("/achievements")({
 });
 
 function AchievementsPage() {
-  const visibleMetrics = metrics.filter((m) => typeof m.value === "number");
+  const achievements = cmsAchievements();
+  const editedImpact = copyPairs("achievements.impactAreas");
+  const impactAreas = editedImpact.length ? editedImpact : seedImpactAreas;
+  const editedMetrics = copyPairs("achievements.metrics");
+  const visibleMetrics = editedMetrics.length
+    ? editedMetrics.map((m, i) => ({ id: `metric-${i}`, label: m.detail, value: m.title, suffix: "" }))
+    : metrics
+        .filter((m) => typeof m.value === "number")
+        .map((m) => ({ id: m.id, label: m.label, value: String(m.value), suffix: m.suffix ?? "" }));
   const years = [...new Set(achievements.map((a) => a.year))].sort((a, b) => b.localeCompare(a));
 
   return (
     <>
       <PageHeader
-        eyebrow="Achievements"
-        title="Outcomes, with the evidence attached"
-        intro="AIMSA publishes an achievement only when it can be evidenced — a result, a certificate, a repository or an official communication. Nothing on this page is estimated."
+        eyebrow={copy("achievements.eyebrow")}
+        title={copy("achievements.title")}
+        intro={copy("achievements.intro")}
         breadcrumb={[{ label: "Home", to: "/" }, { label: "Achievements" }]}
       />
 
@@ -54,7 +63,7 @@ function AchievementsPage() {
                   <dt className="text-sm text-muted-foreground">{m.label}</dt>
                   <dd className="mt-2 font-display text-4xl font-bold text-primary">
                     {m.value}
-                    {m.suffix ?? ""}
+                    {m.suffix}
                   </dd>
                 </div></Tilt>
               ))}
@@ -122,7 +131,7 @@ function AchievementsPage() {
               <EmptyState
                 icon={<Award className="size-8" aria-hidden="true" />}
                 title="No verified achievements published yet"
-                description="AIMSA's programme for this academic year is underway. Results, project outcomes and competition placements will be published here with links to their evidence — rather than as unverifiable claims."
+                description={copy("achievements.emptyText")}
                 action={
                   <Button asChild variant="hero">
                     <Link to="/events">See what is planned</Link>
@@ -141,7 +150,7 @@ function AchievementsPage() {
           <SectionHeading
             id="impact-heading"
             eyebrow="Impact areas"
-            title="What we are trying to change"
+            title={copy("achievements.impactTitle")}
             intro="Qualitative commitments that guide how every AIMSA activity is planned and reviewed."
           />
           <div className="mt-8 grid gap-4 md:grid-cols-2">

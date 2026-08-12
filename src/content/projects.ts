@@ -1,3 +1,4 @@
+import { cmsProjects } from "@/lib/cms/store";
 import type { Project } from "./types";
 
 /**
@@ -31,5 +32,5 @@ export const projectDomains = [
 export const projectStages = ["Concept", "In development", "Shipped"] as const;
 
 export function publishedProjects() {
-  return projects.filter((p) => p.published);
+  return cmsProjects().filter((p) => p.published);
 }

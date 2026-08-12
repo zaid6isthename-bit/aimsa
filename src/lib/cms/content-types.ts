@@ -46,6 +46,7 @@ export interface SiteContent {
   home: HomeSettings | null;
   about: AboutSettings | null;
   contact: ContactSettings | null;
+  copy: Record<string, string>;
 }
 
 export const emptySiteContent: SiteContent = {
@@ -58,4 +59,5 @@ export const emptySiteContent: SiteContent = {
   home: null,
   about: null,
   contact: null,
+  copy: {},
 };

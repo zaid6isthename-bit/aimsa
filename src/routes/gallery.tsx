@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight, ImageIcon, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PageHeader } from "@/components/site/PageHeader";
 import { EmptyState } from "@/components/site/EmptyState";
-import { albums } from "@/content/gallery";
+import { cmsAlbums, copy } from "@/lib/cms/store";
 import type { GalleryImage } from "@/content/types";
 import { ArtBackdrop } from "@/components/site/ArtBackdrop";
 import { bgFor } from "@/assets/bg";
@@ -25,6 +25,7 @@ export const Route = createFileRoute("/gallery")({
 });
 
 function GalleryPage() {
+  const albums = cmsAlbums();
   const [filter, setFilter] = useState<string>("");
   const [lightbox, setLightbox] = useState<{ images: GalleryImage[]; index: number } | null>(null);
   const categories = [...new Set(albums.map((a) => a.category))];
@@ -33,9 +34,9 @@ function GalleryPage() {
   return (
     <>
       <PageHeader
-        eyebrow="Gallery"
-        title="Moments from AIMSA events"
-        intro="Photographs are published album by album once they are collected and cleared for sharing. We publish fewer, better images rather than filler."
+        eyebrow={copy("gallery.eyebrow")}
+        title={copy("gallery.title")}
+        intro={copy("gallery.intro")}
         breadcrumb={[{ label: "Home", to: "/" }, { label: "Gallery" }]}
       />
 
@@ -46,7 +47,7 @@ function GalleryPage() {
           <EmptyState
             icon={<ImageIcon className="size-8" aria-hidden="true" />}
             title="The first albums are being prepared"
-            description="AIMSA publishes event photography after each activity, with participant consent. Until the first album is live, the events page is the best place to see what is planned."
+            description={copy("gallery.emptyText")}
             action={
               <div className="flex flex-wrap justify-center gap-3">
                 <Button asChild variant="hero">

@@ -14,6 +14,8 @@ import {
   signInWithAdminId,
 } from "@/lib/cms/admin.functions";
 import logo from "@/assets/aimsa-wordmark.png.asset.json";
+import { ArtBackdrop } from "@/components/site/ArtBackdrop";
+import { bgFor } from "@/assets/bg";
 
 export const Route = createFileRoute("/admin/login")({
   ssr: false,
@@ -58,6 +60,10 @@ function AdminLogin() {
     setBusy(true);
     try {
       const session = await signInWithAdminId({ data: { adminId: adminId.trim(), password } });
+      if (!session.ok) {
+        toast.error(session.message);
+        return;
+      }
       const { error } = await supabase.auth.setSession({
         access_token: session.accessToken,
         refresh_token: session.refreshToken,
@@ -94,8 +100,10 @@ function AdminLogin() {
   const needsSetup = setup.data?.setupRequired === true;
 
   return (
-    <main className="grid min-h-screen place-items-center bg-background px-6 py-16">
-      <div className="w-full max-w-md rounded-2xl border border-border bg-card p-8 shadow-lg">
+    <main className="relative isolate overflow-hidden grid min-h-screen place-items-center bg-background px-4 py-10 sm:px-6 sm:py-16">
+      <ArtBackdrop image={bgFor("admin:login")} opacity={0.4} position="center 40%" />
+      <div className="relative w-full max-w-md rounded-2xl border border-border bg-card/95 p-6 shadow-2xl backdrop-blur-xl sm:bg-card/80 sm:p-8">
+        <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 rounded-2xl bg-background/40 sm:hidden" />
         <img src={logo.url} alt="AIMSA" className="mx-auto h-8 w-auto" />
         <h1 className="mt-6 text-center text-xl font-semibold text-foreground">
           {needsSetup ? "Create the first Super Admin" : "Administrator sign-in"}

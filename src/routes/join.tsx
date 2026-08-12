@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader } from "@/components/site/PageHeader";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { InquiryForm } from "@/components/site/InquiryForm";
+import { copy, copyPairs } from "@/lib/cms/store";
 import { joinFaqs } from "@/content/faqs";
 import { ArtBackdrop } from "@/components/site/ArtBackdrop";
 import artBeach from "@/assets/tiles/tile-5.jpg.asset.json";
@@ -25,26 +26,24 @@ export const Route = createFileRoute("/join")({
   component: JoinPage,
 });
 
-const steps = [
-  { title: "Register interest", detail: "Submit the form below with your branch, year and what you want to work on." },
-  { title: "Attend orientation", detail: "A short session covering how AIMSA runs and what each functional team does." },
-  { title: "Pick a team", detail: "Choose technical, events, design or outreach based on where you want to contribute." },
-  { title: "Start building", detail: "Join the next workshop or project cycle and ship something in your first term." },
-];
-
 function JoinPage() {
+  const steps = copyPairs("join.steps");
+  const editedFaqs = copyPairs("join.faqs");
+  const faqs = editedFaqs.length
+    ? editedFaqs.map((f) => ({ question: f.title, answer: f.detail }))
+    : joinFaqs;
   return (
     <>
       <PageHeader
-        eyebrow="Join"
-        title="Membership is open to every LTCE student"
-        intro="No entrance test, no branch requirement, no prior machine-learning experience. Register your interest and the core team will contact you about orientation."
+        eyebrow={copy("join.eyebrow")}
+        title={copy("join.title")}
+        intro={copy("join.intro")}
         breadcrumb={[{ label: "Home", to: "/" }, { label: "Join" }]}
       />
 
       <div className="container-aimsa section-y grid gap-12 lg:grid-cols-[1fr_1.1fr]">
         <div>
-          <h2 className="text-2xl font-bold">How joining works</h2>
+          <h2 className="text-2xl font-bold">{copy("join.stepsTitle")}</h2>
           <ol className="mt-6 space-y-4">
             {steps.map((s, i) => (
               <li key={s.title} className="surface-card flex gap-4 p-5">
@@ -61,8 +60,8 @@ function JoinPage() {
         </div>
 
         <div className="surface-card p-7 sm:p-9">
-          <h2 className="text-2xl font-bold">Interest form</h2>
-          <p className="mt-2 text-sm text-muted-foreground">Fields marked with an asterisk are required.</p>
+          <h2 className="text-2xl font-bold">{copy("join.formTitle")}</h2>
+          <p className="mt-2 text-sm text-muted-foreground">{copy("join.formNote")}</p>
           <div className="mt-6">
             <InquiryForm kind="join" />
           </div>
@@ -72,9 +71,9 @@ function JoinPage() {
       <section className="relative isolate overflow-hidden border-t border-border bg-surface/40">
         <ArtBackdrop image={artBeach.url} opacity={0.8} position="center 60%" />
         <div className="container-aimsa section-y">
-          <SectionHeading eyebrow="FAQ" title="Common questions" />
+          <SectionHeading eyebrow="FAQ" title={copy("join.faqTitle")} />
           <dl className="mt-8 grid gap-4 md:grid-cols-2">
-            {joinFaqs.map((f) => (
+            {faqs.map((f) => (
               <div key={f.question} className="surface-card p-6">
                 <dt className="font-semibold">{f.question}</dt>
                 <dd className="mt-2 text-sm leading-relaxed text-muted-foreground">{f.answer}</dd>

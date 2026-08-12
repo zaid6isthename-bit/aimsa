@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { PageHeader } from "@/components/site/PageHeader";
 import { EmptyState } from "@/components/site/EmptyState";
 import { activeAnnouncements, formatDate, isNewAnnouncement } from "@/lib/content";
+import { copy } from "@/lib/cms/store";
 import { ArtBackdrop } from "@/components/site/ArtBackdrop";
 import { bgFor } from "@/assets/bg";
 
@@ -30,9 +31,9 @@ function AnnouncementsPage() {
   return (
     <>
       <PageHeader
-        eyebrow="Announcements"
-        title="Notices and updates"
-        intro="Official communication from the AIMSA core team. Registration windows, event notices and calls for participation are posted here first."
+        eyebrow={copy("announcements.eyebrow")}
+        title={copy("announcements.title")}
+        intro={copy("announcements.intro")}
         breadcrumb={[{ label: "Home", to: "/" }, { label: "Announcements" }]}
       />
 
@@ -43,7 +44,7 @@ function AnnouncementsPage() {
           <EmptyState
             icon={<Bell className="size-8" aria-hidden="true" />}
             title="No active announcements"
-            description="There is nothing to notify right now. Notices for upcoming events and registration windows will appear here."
+            description={copy("announcements.emptyText")}
             action={
               <Button asChild variant="hero">
                 <Link to="/events">Browse events</Link>

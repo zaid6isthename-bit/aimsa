@@ -133,16 +133,17 @@ export const signInWithAdminId = createServerFn({ method: "POST" })
     return { adminId, password };
   })
   .handler(async ({ data }) => {
+    const failure = { ok: false as const, message: "Invalid portal ID or password." };
     if (!allowLoginAttempt(clientIp())) {
-      throw new Error("Too many login attempts. Please wait a few minutes and try again.");
+      return { ok: false as const, message: "Too many login attempts. Please wait a few minutes and try again." };
     }
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     const { data: profile } = await supabaseAdmin
       .from("admin_profiles")
       .select("email, active")
-      .eq("admin_id", data.adminId)
+      .ilike("admin_id", data.adminId)
       .maybeSingle();
-    if (!profile || !profile.active) throw new Error("Invalid portal ID or password.");
+    if (!profile || !profile.active) return failure;
 
     const { createClient } = await import("@supabase/supabase-js");
     const key = process.env["SUPABASE_PUBLISHABLE_KEY"] ?? process.env["SUPABASE_ANON_KEY"]!;
@@ -161,8 +162,9 @@ export const signInWithAdminId = createServerFn({ method: "POST" })
       email: profile.email,
       password: data.password,
     });
-    if (signIn.error || !signIn.data.session) throw new Error("Invalid portal ID or password.");
+    if (signIn.error || !signIn.data.session) return failure;
     return {
+      ok: true as const,
       accessToken: signIn.data.session.access_token,
       refreshToken: signIn.data.session.refresh_token,
     };

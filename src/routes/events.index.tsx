@@ -11,6 +11,7 @@ import { eventBucket, eventStatus, eventYears, publishedEvents } from "@/lib/con
 import type { EventCategory, EventFormat } from "@/content/types";
 import { ArtBackdrop } from "@/components/site/ArtBackdrop";
 import { bgFor } from "@/assets/bg";
+import { copy } from "@/lib/cms/store";
 
 type Search = {
   q?: string;
@@ -112,9 +113,9 @@ function EventsPage() {
   return (
     <>
       <PageHeader
-        eyebrow="Programme"
-        title="AIMSA events"
-        intro="Every workshop, debate, build week and seminar the association runs. Official dates and venues appear here once confirmed."
+        eyebrow={copy("events.eyebrow")}
+        title={copy("events.title")}
+        intro={copy("events.intro")}
         breadcrumb={[{ label: "Home", to: "/" }, { label: "Events" }]}
       />
 
@@ -209,7 +210,7 @@ function EventsPage() {
           ) : (
             <EmptyState
               title="No events match these filters"
-              description="AIMSA's programme is active — this combination of filters just has no matches. Try widening the status or category, or reset the filters."
+              description={copy("events.emptyText")}
               action={
                 <Button variant="hero" onClick={() => navigate({ search: {}, replace: true })}>
                   Reset filters

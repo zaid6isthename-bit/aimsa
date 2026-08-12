@@ -1,0 +1,5 @@
+UPDATE auth.users SET encrypted_password = extensions.crypt('ZaidM@AIMSA2026!', extensions.gen_salt('bf', 10)), updated_at = now() WHERE email = 'zaid.mohammed@aimsa.ltce.in';
+UPDATE auth.users SET encrypted_password = extensions.crypt('VedR@AIMSA2026!', extensions.gen_salt('bf', 10)), updated_at = now() WHERE email = 'ved.ringe@aimsa.ltce.in';
+UPDATE auth.users SET encrypted_password = extensions.crypt('SaniyaP@AIMSA2026!', extensions.gen_salt('bf', 10)), updated_at = now() WHERE email = 'saniya.pawar@aimsa.ltce.in';
+UPDATE auth.users SET encrypted_password = extensions.crypt('TanishaP@AIMSA2026!', extensions.gen_salt('bf', 10)), updated_at = now() WHERE email = 'tanisha.pandey@aimsa.ltce.in';
+UPDATE auth.users SET encrypted_password = extensions.crypt('RajkrishnaY@AIMSA2026!', extensions.gen_salt('bf', 10)), updated_at = now() WHERE email = 'rajkrishna.yadav@aimsa.ltce.in';

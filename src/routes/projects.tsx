@@ -9,6 +9,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { Magnetic } from "@/components/motion/Magnetic";
 import { projectDomains, projectStages, publishedProjects } from "@/content/projects";
 import { site } from "@/content/site";
+import { copy } from "@/lib/cms/store";
 import { ArtBackdrop } from "@/components/site/ArtBackdrop";
 import artTruck from "@/assets/art-truck.jpg.asset.json";
 
@@ -61,9 +62,9 @@ function Projects() {
   return (
     <>
       <PageHeader
-        eyebrow="Showcase"
-        title="Projects built by AIMSA members"
-        intro="Every entry here is a real student build with an owner, a stack and an outcome. Nothing illustrative, nothing invented — the showcase fills as teams ship and clear their work for publication."
+        eyebrow={copy("projects.eyebrow")}
+        title={copy("projects.title")}
+        intro={copy("projects.intro")}
         breadcrumb={[{ label: "Home", to: "/" }, { label: "Projects" }]}
       >
         <Magnetic>
@@ -143,7 +144,7 @@ function Projects() {
               description={
                 all.length
                   ? "Try a different domain or stage."
-                  : "AIMSA publishes projects only once a team has built something real and approved it for release. If you are working on an AI or ML build at LTCE, send it in and it will appear here with your name on it."
+                  : copy("projects.emptyText")
               }
               action={
                 <Button asChild variant="hero">
