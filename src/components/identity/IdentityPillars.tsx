@@ -86,15 +86,18 @@ export const IdentityPillars: React.FC = () => {
         </div>
 
         {/* Pillars Scrapbook Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
-          {pillars.map((pillar) => {
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          {pillars.map((pillar, idx) => {
             const isSelected = activePillar === pillar.id;
+            const isLast = idx === pillars.length - 1;
             return (
               <motion.div
                 key={pillar.id}
                 onMouseEnter={() => setActivePillar(pillar.id)}
                 onClick={() => setActivePillar(pillar.id)}
                 className={`relative p-6 rounded-xs border transition-all duration-400 cursor-pointer overflow-hidden flex flex-col justify-between min-h-[280px] md:min-h-[320px] ${
+                  isLast ? 'sm:col-span-2 sm:max-w-md sm:mx-auto sm:w-full lg:col-span-1 lg:max-w-none' : ''
+                } ${
                   isSelected
                     ? 'bg-[#FFFFFF] border-[#D92525] shadow-xl scale-[1.02] z-20'
                     : 'bg-[#F9F7F1] border-black/15 hover:bg-white/80'

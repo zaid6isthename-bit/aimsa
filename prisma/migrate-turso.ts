@@ -152,12 +152,45 @@ async function migrate() {
       contentName TEXT DEFAULT '',
       createdAt DATETIME DEFAULT CURRENT_TIMESTAMP
     )`,
+    `CREATE TABLE IF NOT EXISTS EventRegistration (
+      id TEXT PRIMARY KEY DEFAULT (hex(randomblob(16))),
+      eventId TEXT,
+      eventTitle TEXT NOT NULL DEFAULT '',
+      eventSlug TEXT NOT NULL DEFAULT '',
+      name TEXT NOT NULL,
+      email TEXT NOT NULL,
+      phone TEXT NOT NULL DEFAULT '',
+      rollNumber TEXT NOT NULL DEFAULT '',
+      year TEXT NOT NULL DEFAULT '1st Year',
+      branch TEXT NOT NULL DEFAULT 'AI & ML',
+      teamName TEXT NOT NULL DEFAULT '',
+      teamMembers TEXT NOT NULL DEFAULT '',
+      customAnswers TEXT NOT NULL DEFAULT '{}',
+      status TEXT NOT NULL DEFAULT 'confirmed',
+      notes TEXT NOT NULL DEFAULT '',
+      createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+      updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+      FOREIGN KEY (eventId) REFERENCES Event(id) ON DELETE SET NULL
+    )`,
   ];
 
   for (const sql of tables) {
     await client.execute(sql);
   }
-  console.log('All tables created on Turso!');
+
+  // Safe column additions for Event table if it already existed
+  try {
+    await client.execute('ALTER TABLE Event ADD COLUMN registrationOpen INTEGER DEFAULT 1');
+  } catch (e) {
+    // Column may already exist
+  }
+  try {
+    await client.execute('ALTER TABLE Event ADD COLUMN maxCapacity INTEGER DEFAULT 0');
+  } catch (e) {
+    // Column may already exist
+  }
+
+  console.log('All tables created/updated on Turso!');
   client.close();
 }
 

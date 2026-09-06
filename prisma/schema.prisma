@@ -34,7 +34,9 @@ model Event {
   venue          String
   shortDesc      String
   coverUrl       String   @default("")
-  registrationUrl String  @default("")
+  registrationUrl String   @default("")
+  registrationOpen Boolean  @default(true)
+  maxCapacity      Int      @default(0)
   attendeeCount  Int      @default(0)
   featured       Boolean  @default(false)
   status         String   @default("draft") // draft, published, scheduled, archived
@@ -43,6 +45,7 @@ model Event {
   rules          String   @default("")
   results        String   @default("")
   galleryImages  String   @default("[]")
+  registrations  EventRegistration[]
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
 }
@@ -163,4 +166,25 @@ model ActivityLog {
   contentName String   @default("")
   createdAt   DateTime @default(now())
   admin       AdminUser? @relation(fields: [adminId], references: [id], onDelete: Cascade)
+}
+
+model EventRegistration {
+  id            String    @id @default(uuid())
+  eventId       String?
+  event         Event?    @relation(fields: [eventId], references: [id], onDelete: SetNull)
+  eventTitle    String
+  eventSlug     String
+  name          String
+  email         String
+  phone         String    @default("")
+  rollNumber    String    @default("")
+  year          String    @default("1st Year")
+  branch        String    @default("AI & ML")
+  teamName      String    @default("")
+  teamMembers   String    @default("")
+  customAnswers String    @default("{}")
+  status        String    @default("confirmed") // confirmed, waitlisted, attended, cancelled
+  notes         String    @default("")
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
 }

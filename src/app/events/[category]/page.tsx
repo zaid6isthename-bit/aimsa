@@ -179,7 +179,9 @@ export default function CategoryPage() {
                   className="py-5 px-4 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:bg-white/60 transition-colors group rounded-xs"
                 >
                   <div className="flex items-center gap-4">
-                    <span className="font-bold text-lg text-neutral-600">0{idx + 1}.</span>
+                    <span className="font-bold text-lg text-neutral-600">
+                      {String(idx + 1).padStart(2, '0')}.
+                    </span>
                     <div>
                       <h4 className="font-bold text-lg text-[#121110] group-hover:text-[#D92525] transition-colors uppercase">
                         {evt.title}

@@ -121,7 +121,9 @@ export default function HomePage() {
                   className="py-5 px-4 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:bg-white/60 transition-colors group rounded-xs"
                 >
                   <div className="flex items-center gap-4">
-                    <span className="font-bold text-lg text-neutral-600">0{idx + 1}.</span>
+                    <span className="font-bold text-lg text-neutral-600">
+                      {String(idx + 1).padStart(2, '0')}.
+                    </span>
                     <div>
                       <span className="px-2.5 py-0.5 bg-[#D92525]/10 text-[#D92525] rounded text-[10px] font-bold uppercase tracking-wider">
                         {evt.category}

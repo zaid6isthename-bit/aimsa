@@ -76,34 +76,34 @@ export const EditorialFooter: React.FC = () => {
             </h4>
             <ul className="space-y-3 font-mono-tech text-xs uppercase tracking-wider text-neutral-800 font-semibold">
               <li>
-                <a href="#about" className="hover:text-[#D92525] transition-colors">
+                <Link href="/about" className="hover:text-[#D92525] transition-colors">
                   01. ABOUT AIMSA
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#team" className="hover:text-[#D92525] transition-colors">
+                <Link href="/people" className="hover:text-[#D92525] transition-colors">
                   02. OUR PEOPLE & LEADS
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#events" className="hover:text-[#D92525] transition-colors">
+                <Link href="/events" className="hover:text-[#D92525] transition-colors">
                   03. EVENTS & HACKATHONS
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#community" className="hover:text-[#D92525] transition-colors">
+                <Link href="/community" className="hover:text-[#D92525] transition-colors">
                   04. COMMUNITY & CULTURE
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#achievements" className="hover:text-[#D92525] transition-colors">
+                <Link href="/achievements" className="hover:text-[#D92525] transition-colors">
                   05. WALL OF FAME
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#gallery" className="hover:text-[#D92525] transition-colors">
+                <Link href="/gallery" className="hover:text-[#D92525] transition-colors">
                   06. VISUAL ARCHIVE
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

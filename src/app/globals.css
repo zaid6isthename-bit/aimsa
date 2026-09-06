@@ -91,12 +91,13 @@
 .red-marker-line {
   position: relative;
   display: inline-block;
-  overflow: hidden;
+  overflow: visible;
+  padding-bottom: 6px;
 }
 .red-marker-line::after {
   content: '';
   position: absolute;
-  bottom: -4px;
+  bottom: -2px;
   left: 0;
   right: 0;
   height: 4px;
@@ -150,6 +151,15 @@
   transform: translateY(-6px) scale(1.02) rotate(0deg) !important;
   box-shadow: 0 24px 45px -10px rgba(0, 0, 0, 0.35);
   z-index: 40 !important;
+}
+
+/* Slow Spin Animation for StampBadge rotating text ring */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spin-slow 18s linear infinite;
 }
 
 /* Custom Scrollbar */

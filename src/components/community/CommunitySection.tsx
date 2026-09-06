@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Quote } from 'lucide-react';
@@ -105,12 +106,12 @@ export const CommunitySection: React.FC = () => {
               </p>
             </div>
           </div>
-          <a
-            href="#connect"
+          <Link
+            href="/connect"
             className="px-6 py-3 rounded-full bg-[#121110] hover:bg-[#D92525] text-white font-mono-tech font-bold text-xs uppercase tracking-wider transition-all shrink-0 shadow-md"
           >
             PITCH AN IDEA
-          </a>
+          </Link>
         </div>
       </div>
     </section>

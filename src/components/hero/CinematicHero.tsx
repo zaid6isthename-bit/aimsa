@@ -43,7 +43,7 @@ export const CinematicHero: React.FC<CinematicHeroProps> = ({ onExploreEvents })
             transition={{ duration: 0.6, delay: 0.2 }}
             className="font-mono-tech text-sm sm:text-base text-neutral-700 max-w-lg leading-relaxed pt-2"
           >
-            There with AIMSA accepting prospective men, science and focus activities in outcome-based capacity building, and forming concepts for applications.
+            AIMSA is the official student association of the AI &amp; ML department — uniting developers, researchers, athletes, musicians, and creators under one family.
           </motion.p>
 
           {/* Buttons (Exact Red Pill & Outline Pill from Screenshot 2 & 3) */}
@@ -54,17 +54,17 @@ export const CinematicHero: React.FC<CinematicHeroProps> = ({ onExploreEvents })
             className="flex flex-wrap items-center gap-4 pt-2"
           >
             <a
-              href="#about"
+              href="/about"
               className="px-8 py-3.5 rounded-full bg-[#D92525] hover:bg-[#B81D1D] text-white font-mono-tech font-bold text-sm tracking-wider shadow-md hover:shadow-lg transition-all flex items-center gap-2"
             >
-              <span>Visit Website</span>
+              <span>Explore AIMSA</span>
             </a>
 
             <a
-              href="#connect"
+              href="/connect"
               className="px-7 py-3.5 rounded-full border border-black/80 hover:bg-black/10 text-[#121110] font-mono-tech font-bold text-sm tracking-wider transition-all flex items-center gap-2"
             >
-              <span>Connect Us</span>
+              <span>Join AIMSA</span>
             </a>
           </motion.div>
         </div>
@@ -118,9 +118,9 @@ export const CinematicHero: React.FC<CinematicHeroProps> = ({ onExploreEvents })
       {/* Bottom Bar: Nav Links & Social Icons (Exact to Reference Screenshots) */}
       <div className="max-w-7xl mx-auto w-full pt-8 mt-8 border-t border-black/10 flex items-center justify-between font-mono-tech text-xs text-[#121110]">
         <div className="flex items-center gap-8 font-semibold">
-          <a href="#" className="hover:text-[#D92525] transition-colors">Home</a>
-          <a href="#about" className="hover:text-[#D92525] transition-colors">About</a>
-          <a href="#connect" className="hover:text-[#D92525] transition-colors">Connect</a>
+          <a href="/" className="hover:text-[#D92525] transition-colors">Home</a>
+          <a href="/about" className="hover:text-[#D92525] transition-colors">About</a>
+          <a href="/connect" className="hover:text-[#D92525] transition-colors">Connect</a>
         </div>
 
         <div className="flex items-center gap-4 text-neutral-700">
