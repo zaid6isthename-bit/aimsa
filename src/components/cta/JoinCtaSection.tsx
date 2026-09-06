@@ -121,7 +121,7 @@ export const JoinCtaSection: React.FC<JoinCtaSectionProps> = ({
 
   return (
     <section id="connect" className="relative paper-crumpled-bg py-24 sm:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden select-none">
-      <div className="max-w-7xl mx-auto relative z-10 flex flex-col items-center">
+      <div className="max-w-7xl mx-auto relative z-10 flex flex-col items-center overflow-hidden">
         {/* TOP: Dense Overlapping Polaroid Collage Cluster (Exact to Reference Video) */}
         <div className="relative w-full h-[320px] sm:h-[400px] max-w-6xl mb-12 sm:mb-16">
           {/* Handwritten ink note scribble on left */}
@@ -172,13 +172,13 @@ export const JoinCtaSection: React.FC<JoinCtaSectionProps> = ({
         {/* MIDDLE: Massive Solid Black Title "BE PART OF AIMSA" (Exact to Reference Video) */}
         <div
           onClick={handleOpen}
-          className="cursor-pointer text-center group my-6 sm:my-10"
+          className="cursor-pointer text-center group my-6 sm:my-10 overflow-hidden"
         >
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-syne font-black text-6xl sm:text-8xl lg:text-[118px] text-[#121110] tracking-tight uppercase leading-[0.88] group-hover:text-[#FF3B00] transition-colors"
+            className="font-syne font-black text-5xl sm:text-7xl lg:text-8xl xl:text-[118px] text-[#121110] tracking-tight uppercase leading-[0.88] group-hover:text-[#FF3B00] transition-colors break-words"
           >
             BE PART <br />
             OF AIMSA

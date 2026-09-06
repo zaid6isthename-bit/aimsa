@@ -27,9 +27,9 @@ export default function MemberProfilePage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#E6E1D7] text-[#121110] paper-crumpled-bg flex flex-col font-sans">
+      <div className="min-h-screen bg-[#E6E1D7] text-[#121110] paper-crumpled-bg flex flex-col font-sans overflow-x-hidden">
         <EditorialHeader />
-        <main className="flex-1 pt-28 pb-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto w-full select-none">
+        <main className="flex-1 pt-28 pb-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto w-full select-none overflow-hidden">
           <div className="py-24 text-center text-neutral-500 font-mono-tech text-xs uppercase">Loading profile...</div>
         </main>
         <EditorialFooter />
@@ -40,9 +40,9 @@ export default function MemberProfilePage() {
   const memberIndex = members.findIndex((m) => m.slug === slug);
   if (memberIndex === -1) {
     return (
-      <div className="min-h-screen bg-[#E6E1D7] text-[#121110] paper-crumpled-bg flex flex-col font-sans">
+      <div className="min-h-screen bg-[#E6E1D7] text-[#121110] paper-crumpled-bg flex flex-col font-sans overflow-x-hidden">
         <EditorialHeader />
-        <main className="flex-1 pt-28 pb-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto w-full select-none">
+        <main className="flex-1 pt-28 pb-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto w-full select-none overflow-hidden">
           <div className="py-24 text-center text-neutral-500 font-mono-tech text-xs uppercase">Member not found</div>
         </main>
         <EditorialFooter />
@@ -55,10 +55,10 @@ export default function MemberProfilePage() {
   const nextMember = members[(memberIndex + 1) % members.length];
 
   return (
-    <div className="min-h-screen bg-[#E6E1D7] text-[#121110] paper-crumpled-bg flex flex-col font-sans">
+    <div className="min-h-screen bg-[#E6E1D7] text-[#121110] paper-crumpled-bg flex flex-col font-sans overflow-x-hidden">
       <EditorialHeader />
 
-      <main className="flex-1 pt-28 pb-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto w-full select-none">
+      <main className="flex-1 pt-28 pb-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto w-full select-none overflow-hidden">
         {/* Top Breadcrumb Nav */}
         <div className="mb-8 font-mono-tech text-xs uppercase flex items-center gap-2 text-neutral-600">
           <Link href="/" className="hover:text-[#D92525]">HOME</Link>
@@ -132,7 +132,7 @@ export default function MemberProfilePage() {
                   {member.highlightTag || member.category}
                 </span>
 
-                <h1 className="font-syne font-black text-4xl sm:text-5xl text-[#121110] uppercase mt-3 tracking-tight">
+                <h1 className="font-syne font-black text-4xl sm:text-5xl text-[#121110] uppercase mt-3 tracking-tight break-words">
                   {member.name}
                 </h1>
                 <p className="font-mono-tech text-sm text-[#D92525] uppercase font-bold tracking-wider mt-1">

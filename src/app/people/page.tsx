@@ -30,17 +30,17 @@ export default function PeoplePage() {
     : members.filter((m) => m.category === selectedCategory);
 
   return (
-    <div className="min-h-screen bg-[#E6E1D7] text-[#121110] paper-crumpled-bg flex flex-col font-sans">
+    <div className="min-h-screen bg-[#E6E1D7] text-[#121110] paper-crumpled-bg flex flex-col font-sans overflow-x-hidden">
       <EditorialHeader />
 
-      <main className="flex-1 pt-28 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full select-none">
+      <main className="flex-1 pt-28 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full select-none overflow-hidden">
         {/* Page Title Header */}
         <div className="border-b border-black/15 pb-10 mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
             <span className="font-mono-tech text-xs uppercase tracking-widest text-[#D92525] font-bold">
               AIMSA PERSONNEL ARCHIVE • {members.length} MEMBERS
             </span>
-            <h1 className="font-syne font-black text-5xl sm:text-7xl text-[#121110] uppercase tracking-tight mt-2">
+            <h1 className="font-syne font-black text-5xl sm:text-7xl text-[#121110] uppercase tracking-tight mt-2 break-words">
               THE <span className="red-marker-line">PEOPLE</span> OF AIMSA
             </h1>
             <p className="font-mono-tech text-xs sm:text-sm text-neutral-700 max-w-xl mt-4 leading-relaxed">

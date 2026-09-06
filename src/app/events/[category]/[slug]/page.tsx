@@ -32,9 +32,9 @@ export default function IndividualEventPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#E6E1D7] text-[#121110] paper-crumpled-bg flex flex-col font-sans">
+      <div className="min-h-screen bg-[#E6E1D7] text-[#121110] paper-crumpled-bg flex flex-col font-sans overflow-x-hidden">
         <EditorialHeader />
-        <main className="flex-1 pt-28 pb-24 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full select-none">
+        <main className="flex-1 pt-28 pb-24 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full select-none overflow-hidden">
           <div className="py-24 text-center text-neutral-500 font-mono-tech text-xs uppercase">Loading event...</div>
         </main>
         <EditorialFooter />
@@ -44,9 +44,9 @@ export default function IndividualEventPage() {
 
   if (!event) {
     return (
-      <div className="min-h-screen bg-[#E6E1D7] text-[#121110] paper-crumpled-bg flex flex-col font-sans">
+      <div className="min-h-screen bg-[#E6E1D7] text-[#121110] paper-crumpled-bg flex flex-col font-sans overflow-x-hidden">
         <EditorialHeader />
-        <main className="flex-1 pt-28 pb-24 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full select-none">
+        <main className="flex-1 pt-28 pb-24 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full select-none overflow-hidden">
           <div className="py-24 text-center text-neutral-500 font-mono-tech text-xs uppercase">Event not found</div>
         </main>
         <EditorialFooter />
@@ -59,10 +59,10 @@ export default function IndividualEventPage() {
   ).slice(0, 3);
 
   return (
-    <div className="min-h-screen bg-[#E6E1D7] text-[#121110] paper-crumpled-bg flex flex-col font-sans">
+    <div className="min-h-screen bg-[#E6E1D7] text-[#121110] paper-crumpled-bg flex flex-col font-sans overflow-x-hidden">
       <EditorialHeader />
 
-      <main className="flex-1 pt-28 pb-24 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full select-none">
+      <main className="flex-1 pt-28 pb-24 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full select-none overflow-hidden">
         {/* Breadcrumb Nav */}
         <div className="mb-6 font-mono-tech text-xs uppercase flex items-center gap-2 text-neutral-600">
           <Link href="/" className="hover:text-[#D92525]">HOME</Link>
@@ -88,7 +88,7 @@ export default function IndividualEventPage() {
               <span className="px-3 py-1 bg-[#D92525] text-white rounded-full font-mono-tech text-[10px] uppercase font-bold tracking-widest inline-block">
                 AIMSA {event.category.toUpperCase()} ARCHIVE
               </span>
-              <h1 className="font-syne font-black text-3xl sm:text-4xl text-[#121110] uppercase tracking-tight mt-2">
+              <h1 className="font-syne font-black text-3xl sm:text-4xl text-[#121110] uppercase tracking-tight mt-2 break-words">
                 {event.title}
               </h1>
               <p className="font-mono-tech text-xs text-neutral-600">

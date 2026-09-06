@@ -31,17 +31,17 @@ export default function GalleryPage() {
     : items.filter((item) => item.category === selectedCategory);
 
   return (
-    <div className="min-h-screen bg-[#E6E1D7] text-[#121110] paper-crumpled-bg flex flex-col font-sans">
+    <div className="min-h-screen bg-[#E6E1D7] text-[#121110] paper-crumpled-bg flex flex-col font-sans overflow-x-hidden">
       <EditorialHeader />
 
-      <main className="flex-1 pt-28 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full select-none">
+      <main className="flex-1 pt-28 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full select-none overflow-hidden">
         {/* Header Title */}
         <div className="border-b border-black/15 pb-12 mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
             <span className="font-mono-tech text-xs uppercase tracking-widest text-[#D92525] font-bold">
               AIMSA VISUAL ARCHIVE • FIELD JOURNAL
             </span>
-            <h1 className="font-syne font-black text-5xl sm:text-7xl text-[#121110] uppercase tracking-tight mt-2">
+            <h1 className="font-syne font-black text-5xl sm:text-7xl text-[#121110] uppercase tracking-tight mt-2 break-words">
               VISUAL <span className="red-marker-line">GALLERY</span>
             </h1>
             <p className="font-mono-tech text-xs sm:text-sm text-neutral-700 max-w-2xl mt-4 leading-relaxed">
@@ -98,8 +98,8 @@ export default function GalleryPage() {
                     </div>
                   </div>
 
-                  <div className="mt-3 text-center">
-                    <p className="font-handwriting text-lg text-neutral-800 font-bold group-hover:text-[#D92525] transition-colors leading-tight">
+                  <div className="mt-3 text-center overflow-hidden">
+                    <p className="font-handwriting text-lg text-neutral-800 font-bold group-hover:text-[#D92525] transition-colors leading-tight line-clamp-2">
                       {item.caption}
                     </p>
                   </div>

@@ -22,7 +22,7 @@ export const AchievementsSection: React.FC = () => {
 
   return (
     <section id="achievements" className="relative paper-crumpled-bg text-[#121110] py-24 sm:py-32 px-4 sm:px-6 lg:px-8 border-t border-black/10 overflow-hidden select-none">
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-7xl mx-auto relative z-10 overflow-hidden">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 border-b border-black/15 pb-8">

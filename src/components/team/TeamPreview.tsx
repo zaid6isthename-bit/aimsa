@@ -26,7 +26,7 @@ export const TeamPreview: React.FC = () => {
 
   return (
     <section id="team" className="relative paper-crumpled-bg text-[#121110] py-24 sm:py-32 px-4 sm:px-6 lg:px-8 border-t border-black/10 overflow-hidden select-none">
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-7xl mx-auto relative z-10 overflow-hidden">
         
         {/* Section Header (Exact to Screenshot 5: "Team" with Red Underline) */}
         <div className="text-center mb-20">
@@ -34,7 +34,7 @@ export const TeamPreview: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-syne font-black text-5xl sm:text-7xl text-[#121110] tracking-tight uppercase inline-block"
+            className="font-syne font-black text-5xl sm:text-7xl text-[#121110] tracking-tight uppercase inline-block break-words"
           >
             <span className="red-marker-line">Team</span>
           </motion.h2>
@@ -58,7 +58,7 @@ export const TeamPreview: React.FC = () => {
                   onClick={() => setSelectedMember(member)}
                 >
                   {/* Massive Number (01., 02., 03., 04.) */}
-                  <span className="font-syne font-black text-7xl sm:text-8xl lg:text-9xl text-[#121110] tracking-tighter leading-none mb-6 group-hover:text-[#D92525] transition-colors">
+                  <span className="font-syne font-black text-6xl sm:text-7xl lg:text-8xl xl:text-9xl text-[#121110] tracking-tighter leading-none mb-6 group-hover:text-[#D92525] transition-colors break-words">
                     {numberStr}
                   </span>
 

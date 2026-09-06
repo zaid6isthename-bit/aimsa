@@ -36,7 +36,7 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#E6E1D7] text-[#121110] paper-crumpled-bg flex flex-col font-sans select-none">
+    <div className="min-h-screen bg-[#E6E1D7] text-[#121110] paper-crumpled-bg flex flex-col font-sans select-none overflow-x-hidden">
       {/* Editorial Header */}
       <EditorialHeader onOpenJoinModal={() => setIsJoinModalOpen(true)} />
 
@@ -44,13 +44,13 @@ export default function HomePage() {
       <CinematicHero />
 
       {/* 2. Who is AIMSA / About Teaser */}
-      <section className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 border-t border-black/10">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <section className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 border-t border-black/10 overflow-hidden">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center overflow-hidden">
           <div className="lg:col-span-6 space-y-6">
             <span className="font-mono-tech text-xs uppercase tracking-widest text-[#D92525] font-bold">
               01. WHO WE ARE
             </span>
-            <h2 className="font-syne font-black text-4xl sm:text-6xl text-[#121110] uppercase tracking-tight">
+            <h2 className="font-syne font-black text-4xl sm:text-6xl text-[#121110] uppercase tracking-tight break-words">
               AI & ML IS OUR FIELD. <br />
               <span className="red-marker-line">AIMSA IS OUR FAMILY</span>
             </h2>
@@ -90,14 +90,14 @@ export default function HomePage() {
       <IdentityPillars />
 
       {/* 4. Event Ecosystem & Tickets Teaser */}
-      <section className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 border-t border-black/10">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 border-t border-black/10 overflow-hidden">
+        <div className="max-w-7xl mx-auto overflow-hidden">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 border-b border-black/15 pb-8">
             <div>
               <span className="font-mono-tech text-xs uppercase tracking-widest text-[#D92525] font-bold">
                 02. EVENT ECOSYSTEM
               </span>
-              <h2 className="font-syne font-black text-4xl sm:text-6xl text-[#121110] uppercase tracking-tight mt-1">
+              <h2 className="font-syne font-black text-4xl sm:text-6xl text-[#121110] uppercase tracking-tight mt-1 break-words">
                 FEATURED <span className="red-marker-line">EVENTS & TICKETS</span>
               </h2>
             </div>
@@ -147,14 +147,14 @@ export default function HomePage() {
       </section>
 
       {/* 5. People / Team Teaser (16 Roster Preview) */}
-      <section className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 border-t border-black/10">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 border-t border-black/10 overflow-hidden">
+        <div className="max-w-7xl mx-auto overflow-hidden">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 border-b border-black/15 pb-8">
             <div>
               <span className="font-mono-tech text-xs uppercase tracking-widest text-[#D92525] font-bold">
                 03. PERSONNEL ARCHIVE
               </span>
-              <h2 className="font-syne font-black text-4xl sm:text-6xl text-[#121110] uppercase tracking-tight mt-1">
+              <h2 className="font-syne font-black text-4xl sm:text-6xl text-[#121110] uppercase tracking-tight mt-1 break-words">
                 MEET THE <span className="red-marker-line">COUNCIL</span>
               </h2>
             </div>
@@ -202,14 +202,14 @@ export default function HomePage() {
       </section>
 
       {/* 6. Wall of Fame / Achievements Teaser */}
-      <section className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 border-t border-black/10">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 border-t border-black/10 overflow-hidden">
+        <div className="max-w-7xl mx-auto overflow-hidden">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 border-b border-black/15 pb-8">
             <div>
               <span className="font-mono-tech text-xs uppercase tracking-widest text-[#D92525] font-bold">
                 04. WALL OF FAME
               </span>
-              <h2 className="font-syne font-black text-4xl sm:text-6xl text-[#121110] uppercase tracking-tight mt-1">
+              <h2 className="font-syne font-black text-4xl sm:text-6xl text-[#121110] uppercase tracking-tight mt-1 break-words">
                 VICTORIES & <span className="red-marker-line">HONORS</span>
               </h2>
             </div>
@@ -245,14 +245,14 @@ export default function HomePage() {
       </section>
 
       {/* 7. Gallery Teaser */}
-      <section className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 border-t border-black/10">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 border-t border-black/10 overflow-hidden">
+        <div className="max-w-7xl mx-auto overflow-hidden">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 border-b border-black/15 pb-8">
             <div>
               <span className="font-mono-tech text-xs uppercase tracking-widest text-[#D92525] font-bold">
                 05. VISUAL FIELD JOURNAL
               </span>
-              <h2 className="font-syne font-black text-4xl sm:text-6xl text-[#121110] uppercase tracking-tight mt-1">
+              <h2 className="font-syne font-black text-4xl sm:text-6xl text-[#121110] uppercase tracking-tight mt-1 break-words">
                 MEMORIES <span className="red-marker-line">ARCHIVE</span>
               </h2>
             </div>

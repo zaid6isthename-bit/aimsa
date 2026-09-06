@@ -21,7 +21,7 @@ export const CommunitySection: React.FC = () => {
 
   return (
     <section id="community" className="relative paper-crumpled-bg text-[#121110] py-24 sm:py-32 px-4 sm:px-6 lg:px-8 border-t border-black/10 overflow-hidden select-none">
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-7xl mx-auto relative z-10 overflow-hidden">
         
         {/* Header Banner */}
         <div className="text-center max-w-4xl mx-auto mb-16">

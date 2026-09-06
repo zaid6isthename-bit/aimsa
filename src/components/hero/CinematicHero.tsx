@@ -14,7 +14,7 @@ export const CinematicHero: React.FC<CinematicHeroProps> = ({ onExploreEvents })
   return (
     <section className="relative min-h-screen w-full paper-crumpled-bg flex flex-col justify-between pt-28 pb-10 px-4 sm:px-6 lg:px-8 overflow-hidden select-none">
       {/* Main Hero Grid */}
-      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center my-auto relative z-10">
+      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center my-auto relative z-10 overflow-hidden">
         
         {/* Left Side: Typography & Buttons (Exact to Reference Screenshots 2 & 3) */}
         <div className="lg:col-span-6 flex flex-col items-start space-y-6">
@@ -23,20 +23,15 @@ export const CinematicHero: React.FC<CinematicHeroProps> = ({ onExploreEvents })
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="space-y-1"
+            className="space-y-0"
           >
-            <div className="flex items-center gap-3">
-              <span className="font-syne font-black text-6xl sm:text-7xl lg:text-8xl tracking-tight text-[#121110] uppercase leading-none red-marker-circle">
-                AIMSA
-              </span>
-            </div>
-            <h1 className="font-syne font-black text-6xl sm:text-7xl lg:text-8xl tracking-tight text-[#121110] uppercase leading-none">
-              AI
+            <h1 className="font-syne font-black text-6xl sm:text-7xl lg:text-8xl tracking-tight text-[#121110] uppercase leading-[0.9] red-marker-circle break-words">
+              AIMSA
             </h1>
-            <h1 className="font-syne font-black text-6xl sm:text-7xl lg:text-8xl tracking-tight text-[#121110] uppercase leading-none">
-              <span className="red-marker-line">ML</span>
+            <h1 className="font-syne font-black text-6xl sm:text-7xl lg:text-8xl tracking-tight text-[#121110] uppercase leading-[0.9] break-words">
+              AI <span className="red-marker-line">ML</span>
             </h1>
-            <h1 className="font-syne font-black text-5xl sm:text-6xl lg:text-7xl tracking-tight text-[#121110] uppercase leading-none">
+            <h1 className="font-syne font-black text-5xl sm:text-6xl lg:text-7xl tracking-tight text-[#121110] uppercase leading-[0.9] break-words">
               COMMUNITY
             </h1>
           </motion.div>

@@ -73,10 +73,10 @@ export const IdentityPillars: React.FC = () => {
 
   return (
     <section className="relative paper-crumpled-bg text-[#121110] py-24 sm:py-32 px-4 sm:px-6 lg:px-8 border-t border-black/10 overflow-hidden select-none">
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-7xl mx-auto relative z-10 overflow-hidden">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="font-syne font-black text-4xl sm:text-6xl uppercase tracking-tight mb-4 text-[#121110]">
+          <h2 className="font-syne font-black text-4xl sm:text-6xl uppercase tracking-tight mb-4 text-[#121110] break-words">
             THE FIVE PILLARS OF <br />
             <span className="red-marker-line">AIMSA CULTURE</span>
           </h2>
@@ -86,7 +86,7 @@ export const IdentityPillars: React.FC = () => {
         </div>
 
         {/* Pillars Scrapbook Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
           {pillars.map((pillar) => {
             const isSelected = activePillar === pillar.id;
             return (
@@ -94,7 +94,7 @@ export const IdentityPillars: React.FC = () => {
                 key={pillar.id}
                 onMouseEnter={() => setActivePillar(pillar.id)}
                 onClick={() => setActivePillar(pillar.id)}
-                className={`relative p-6 rounded-xs border transition-all duration-400 cursor-pointer overflow-hidden flex flex-col justify-between min-h-[320px] ${
+                className={`relative p-6 rounded-xs border transition-all duration-400 cursor-pointer overflow-hidden flex flex-col justify-between min-h-[280px] md:min-h-[320px] ${
                   isSelected
                     ? 'bg-[#FFFFFF] border-[#D92525] shadow-xl scale-[1.02] z-20'
                     : 'bg-[#F9F7F1] border-black/15 hover:bg-white/80'

@@ -32,7 +32,7 @@ export const EditorialFooter: React.FC = () => {
 
   return (
     <footer className="relative paper-crumpled-bg text-[#121110] pt-16 pb-12 border-t border-black/15 overflow-hidden select-none">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 overflow-hidden">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-black/15">
           
           {/* Column 1: Brand & Live Clock */}

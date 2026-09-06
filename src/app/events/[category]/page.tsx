@@ -61,9 +61,9 @@ export default function CategoryPage() {
 
   if (!meta) {
     return (
-      <div className="min-h-screen bg-[#E6E1D7] text-[#121110] paper-crumpled-bg flex flex-col font-sans">
+      <div className="min-h-screen bg-[#E6E1D7] text-[#121110] paper-crumpled-bg flex flex-col font-sans overflow-x-hidden">
         <EditorialHeader />
-        <main className="flex-1 pt-28 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full select-none">
+        <main className="flex-1 pt-28 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full select-none overflow-hidden">
           <div className="py-24 text-center text-neutral-500 font-mono-tech text-xs uppercase">Category not found</div>
         </main>
         <EditorialFooter />
@@ -74,10 +74,10 @@ export default function CategoryPage() {
   const featuredEvent = events.find((e: any) => e.featured) || events[0];
 
   return (
-    <div className="min-h-screen bg-[#E6E1D7] text-[#121110] paper-crumpled-bg flex flex-col font-sans">
+    <div className="min-h-screen bg-[#E6E1D7] text-[#121110] paper-crumpled-bg flex flex-col font-sans overflow-x-hidden">
       <EditorialHeader />
 
-      <main className="flex-1 pt-28 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full select-none">
+      <main className="flex-1 pt-28 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full select-none overflow-hidden">
         {/* Breadcrumb Nav */}
         <div className="mb-6 font-mono-tech text-xs uppercase flex items-center gap-2 text-neutral-600">
           <Link href="/" className="hover:text-[#D92525]">HOME</Link>
@@ -93,7 +93,7 @@ export default function CategoryPage() {
             <span className="px-3.5 py-1 bg-[#D92525]/10 border border-[#D92525]/30 text-[#D92525] rounded-full font-mono-tech text-xs font-bold uppercase tracking-widest">
               {meta.badge}
             </span>
-            <h1 className="font-syne font-black text-4xl sm:text-6xl text-[#121110] uppercase tracking-tight mt-3">
+            <h1 className="font-syne font-black text-4xl sm:text-6xl text-[#121110] uppercase tracking-tight mt-3 break-words">
               {meta.title}
             </h1>
             <p className="font-mono-tech text-xs sm:text-sm text-[#D92525] uppercase font-bold tracking-wider mt-1">

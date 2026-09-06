@@ -27,17 +27,17 @@ export default function CommunityPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#E6E1D7] text-[#121110] paper-crumpled-bg flex flex-col font-sans">
+    <div className="min-h-screen bg-[#E6E1D7] text-[#121110] paper-crumpled-bg flex flex-col font-sans overflow-x-hidden">
       <EditorialHeader />
 
-      <main className="flex-1 pt-28 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full select-none">
+      <main className="flex-1 pt-28 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full select-none overflow-hidden">
         {/* Header Title */}
         <div className="border-b border-black/15 pb-12 mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
             <span className="font-mono-tech text-xs uppercase tracking-widest text-[#D92525] font-bold">
               THE HUMAN SIDE OF AI & ML
             </span>
-            <h1 className="font-syne font-black text-5xl sm:text-7xl text-[#121110] uppercase tracking-tight mt-2">
+            <h1 className="font-syne font-black text-5xl sm:text-7xl text-[#121110] uppercase tracking-tight mt-2 break-words">
               AIMSA <span className="red-marker-line">COMMUNITY</span>
             </h1>
             <p className="font-mono-tech text-xs sm:text-sm text-neutral-700 max-w-2xl mt-4 leading-relaxed">
@@ -48,9 +48,9 @@ export default function CommunityPage() {
         </div>
 
         {/* Hero Quote Card */}
-        <div className="mb-20 bg-[#FAF8F5] border border-black/20 p-8 sm:p-12 rounded-xs shadow-2xl tape-effect tape-kraft text-center">
+        <div className="mb-20 bg-[#FAF8F5] border border-black/20 p-8 sm:p-12 rounded-xs shadow-2xl tape-effect tape-kraft text-center overflow-hidden">
           <Quote className="w-10 h-10 text-[#D92525] mx-auto mb-4" />
-          <h2 className="font-syne font-black text-3xl sm:text-5xl uppercase text-[#121110] max-w-4xl mx-auto leading-tight">
+          <h2 className="font-syne font-black text-3xl sm:text-5xl uppercase text-[#121110] max-w-4xl mx-auto leading-tight break-words">
             "NO STUDENT STANDS ALONE IN THE AI & ML DEPARTMENT."
           </h2>
           <p className="font-handwriting text-2xl text-neutral-800 mt-4">
@@ -122,9 +122,9 @@ export default function CommunityPage() {
         </div>
 
         {/* Pitch an Idea Banner */}
-        <div className="p-8 bg-[#FAF8F5] border border-black/20 rounded-xs shadow-xl flex flex-col md:flex-row items-center justify-between gap-6 tape-effect tape-amber">
+        <div className="p-8 bg-[#FAF8F5] border border-black/20 rounded-xs shadow-xl flex flex-col md:flex-row items-center justify-between gap-6 tape-effect tape-amber overflow-hidden">
           <div>
-            <h3 className="font-syne font-black text-2xl text-[#121110] uppercase">
+            <h3 className="font-syne font-black text-2xl text-[#121110] uppercase break-words">
               HAVE AN IDEA FOR A NEW STUDENT CLUB OR EVENT?
             </h3>
             <p className="font-mono-tech text-xs text-neutral-700 mt-1">

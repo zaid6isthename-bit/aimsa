@@ -33,7 +33,7 @@ export const GalleryMasonry: React.FC = () => {
 
   return (
     <section id="gallery" className="relative paper-crumpled-bg py-24 sm:py-32 px-4 sm:px-6 lg:px-8 border-t border-black/10 overflow-hidden select-none">
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-7xl mx-auto relative z-10 overflow-hidden">
         
         {/* Section Header (Exact to Screenshot 3: "Gallery") */}
         <div className="mb-12">
@@ -91,8 +91,8 @@ export const GalleryMasonry: React.FC = () => {
                     </div>
 
                     {/* Handwritten caption */}
-                    <div className="mt-3 text-center">
-                      <p className="font-handwriting text-lg text-neutral-800 font-bold group-hover:text-[#D92525] transition-colors leading-tight">
+                    <div className="mt-3 text-center overflow-hidden">
+                      <p className="font-handwriting text-lg text-neutral-800 font-bold group-hover:text-[#D92525] transition-colors leading-tight line-clamp-2">
                         {fullItem.caption}
                       </p>
                     </div>

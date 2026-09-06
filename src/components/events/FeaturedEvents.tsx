@@ -23,7 +23,7 @@ export const FeaturedEvents: React.FC = () => {
 
   return (
     <section id="events" className="relative paper-crumpled-bg py-24 sm:py-32 px-4 sm:px-6 lg:px-8 border-t border-black/10 overflow-hidden select-none">
-      <div className="max-w-5xl mx-auto relative z-10">
+      <div className="max-w-5xl mx-auto relative z-10 overflow-hidden">
         
         {/* Section Header (Exact to Screenshots 1 & 2: "Events" with Red Underline and Red Arrow Scribble) */}
         <div className="flex items-center justify-between mb-12">
