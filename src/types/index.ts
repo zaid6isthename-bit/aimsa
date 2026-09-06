@@ -3,7 +3,7 @@ export interface TeamMember {
   slug: string;
   name: string;
   role: string;
-  category: 'Leadership' | 'Core Team' | 'Department Leads' | 'Executive Committee';
+  category: 'Leadership' | 'Core Team' | 'Department Leads' | 'Executive Committee' | 'Team Members';
   year: string;
   photoUrl: string;
   bio: string;
