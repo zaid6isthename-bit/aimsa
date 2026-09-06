@@ -1,0 +1,165 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model AdminUser {
+  id           String   @id @default(uuid())
+  username     String   @unique
+  name         String
+  email        String   @unique
+  passwordHash String
+  role         String   // super_admin, content_admin, event_admin
+  status       String   // active, inactive
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  lastLogin    DateTime?
+  activityLogs ActivityLog[]
+}
+
+model Event {
+  id             String   @id @default(uuid())
+  title          String
+  slug           String   @unique
+  description    String
+  fullStory      String   @default("")
+  category       String   // technical, cultural, sports, community, celebrations
+  date           String
+  time           String
+  venue          String
+  shortDesc      String
+  coverUrl       String   @default("")
+  registrationUrl String  @default("")
+  attendeeCount  Int      @default(0)
+  featured       Boolean  @default(false)
+  status         String   @default("draft") // draft, published, scheduled, archived
+  scheduleStatus String   @default("upcoming") // upcoming, ongoing, completed
+  organizers     String   @default("")
+  rules          String   @default("")
+  results        String   @default("")
+  galleryImages  String   @default("[]")
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+model Announcement {
+  id          String    @id @default(uuid())
+  title       String
+  content     String
+  category    String    // general, events, registration, results, workshops, notices
+  imageUrl    String    @default("")
+  link        String    @default("")
+  pinned      Boolean   @default(false)
+  status      String    @default("draft") // draft, published, scheduled, archived
+  publishedAt DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model TeamMember {
+  id            String   @id @default(uuid())
+  name          String
+  slug          String   @unique
+  role          String
+  category      String
+  year          String
+  photoUrl      String
+  bio           String
+  quote         String   @default("")
+  contributions String   @default("[]")
+  github        String   @default("")
+  linkedin      String   @default("")
+  email         String   @default("")
+  highlightTag  String   @default("")
+  displayOrder  Int      @default(0)
+  isActive      Boolean  @default(true)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model Project {
+  id              String   @id @default(uuid())
+  name            String
+  description     String
+  technologyStack String   @default("")
+  category        String   @default("")
+  imageUrl        String   @default("")
+  githubLink      String   @default("")
+  demoLink        String   @default("")
+  teamMembers     String   @default("")
+  status          String   @default("active") // active, completed, archived
+  featured        Boolean  @default(false)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model Achievement {
+  id           String   @id @default(uuid())
+  title        String
+  description  String
+  category     String   // Hackathon, Research, Sports, Community
+  date         String
+  competition  String   @default("")
+  participants String   @default("")
+  position     String   @default("")
+  imageUrl     String   @default("")
+  externalLink String   @default("")
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model GalleryAlbum {
+  id          String   @id @default(uuid())
+  title       String
+  description String   @default("")
+  category    String   // Technical, Cultural, Sports, Community, Celebrations
+  coverUrl    String   @default("")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  images      GalleryImage[]
+}
+
+model GalleryImage {
+  id           String   @id @default(uuid())
+  albumId      String?
+  album        GalleryAlbum? @relation(fields: [albumId], references: [id], onDelete: Cascade)
+  title        String
+  caption      String   @default("")
+  url          String
+  category     String   @default("")
+  featured     Boolean  @default(false)
+  displayOrder Int      @default(0)
+  createdAt    DateTime @default(now())
+}
+
+model ContactInformation {
+  id           String   @id @default(uuid())
+  label        String   @unique
+  value        String
+  type         String   // email, phone, social, text, url
+  displayOrder Int      @default(0)
+  updatedAt    DateTime @updatedAt
+}
+
+model SiteSetting {
+  id        String   @id @default(uuid())
+  key       String   @unique
+  value     String
+  updatedAt DateTime @updatedAt
+}
+
+model ActivityLog {
+  id          String   @id @default(uuid())
+  adminId     String
+  adminName   String
+  action      String
+  contentType String
+  contentId   String   @default("")
+  contentName String   @default("")
+  createdAt   DateTime @default(now())
+  admin       AdminUser? @relation(fields: [adminId], references: [id], onDelete: Cascade)
+}

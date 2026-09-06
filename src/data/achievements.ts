@@ -1,0 +1,48 @@
+import { Achievement } from '@/types';
+
+export const ACHIEVEMENTS: Achievement[] = [
+  {
+    id: 'ach-1',
+    title: '1st Place Grand Champions — National AI Hackathon 2024',
+    category: 'Hackathon',
+    date: 'OCTOBER 2024',
+    description: 'AIMSA team NeuralNodes secured the top trophy among 120+ national teams by building an autonomous multi-agent healthcare diagnostic pipeline.',
+    recipients: ['Rohan G.', 'Siddharth M.', 'Pooja K.'],
+    imageUrl: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=800',
+    badgeText: 'NATIONAL CHAMPIONS',
+    highlightStat: '₹1.5L CASH PRIZE',
+  },
+  {
+    id: 'ach-2',
+    title: 'NeurIPS Workshop Paper Acceptance on Vision Transformers',
+    category: 'Research',
+    date: 'DECEMBER 2024',
+    description: 'Co-authored by AIMSA AI Research Lead Ishaan Joshi on parameter-efficient fine-tuning of vision-language models for edge hardware.',
+    recipients: ['Ishaan Joshi', 'Dr. V. Mehta (HOD)'],
+    imageUrl: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=800',
+    badgeText: 'RESEARCH PUBLICATION',
+    highlightStat: 'TOP 5% ACCEPTANCE',
+  },
+  {
+    id: 'ach-3',
+    title: 'University All-Sports Championship Trophy 2025',
+    category: 'Sports',
+    date: 'FEBRUARY 2025',
+    description: 'AIMSA secured overall 1st position across Football, Cricket, Badminton, and Table Tennis in the Inter-Department Sports Olympiad.',
+    recipients: ['AIMSA Athletics Squad', 'Vikram Singh (Capt.)'],
+    imageUrl: 'https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&q=80&w=800',
+    badgeText: 'INTER-DEPT CHAMPIONS',
+    highlightStat: '12 GOLD MEDALS',
+  },
+  {
+    id: 'ach-4',
+    title: 'Best Student Department Council Award 2024',
+    category: 'Community',
+    date: 'DECEMBER 2024',
+    description: 'Awarded by the University Chancellor for outstanding student leadership, community engagement, and hosting 15+ annual events.',
+    recipients: ['AIMSA Executive Committee'],
+    imageUrl: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800',
+    badgeText: 'BEST DEPT COUNCIL',
+    highlightStat: 'CHANCELLOR CITATION',
+  },
+];

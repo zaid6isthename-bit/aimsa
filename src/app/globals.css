@@ -1,0 +1,164 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-syne: var(--font-syne), sans-serif;
+    --font-playfair: var(--font-playfair), serif;
+    --font-inter: var(--font-inter), sans-serif;
+    --font-caveat: var(--font-caveat), cursive;
+    --font-space: var(--font-space), monospace;
+  }
+}
+
+/* Custom font utilities */
+.font-syne {
+  font-family: var(--font-syne);
+}
+.font-playfair {
+  font-family: var(--font-playfair);
+}
+.font-sans {
+  font-family: var(--font-inter);
+}
+.font-handwriting {
+  font-family: var(--font-caveat);
+}
+.font-mono-tech {
+  font-family: var(--font-space);
+}
+
+/* Crumpled Paper Background Texture with Creases & Grid Lines */
+.paper-crumpled-bg {
+  background-color: #E6E1D7;
+  background-image: 
+    radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.45) 0%, rgba(210, 204, 192, 0.6) 100%),
+    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 100% 100%, 32px 32px, 32px 32px;
+  color: #121110;
+}
+
+/* Graph Paper Grid Card */
+.graph-paper-card {
+  background-color: #F7F5EE;
+  background-image: 
+    linear-gradient(to right, rgba(230, 80, 80, 0.15) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(70, 130, 200, 0.15) 1px, transparent 1px);
+  background-size: 20px 20px, 20px 20px;
+}
+
+/* Film Strip Edge Effect */
+.filmstrip-border {
+  position: relative;
+  background-color: #1A1918;
+  padding: 12px 18px;
+}
+.filmstrip-border::before,
+.filmstrip-border::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 10px;
+  background-image: radial-gradient(circle, #E6E1D7 35%, transparent 40%);
+  background-size: 10px 14px;
+}
+.filmstrip-border::before {
+  left: 3px;
+}
+.filmstrip-border::after {
+  right: 3px;
+}
+
+/* Red Hand-Drawn Marker Circle around text */
+.red-marker-circle {
+  position: relative;
+  display: inline-block;
+}
+.red-marker-circle::after {
+  content: '';
+  position: absolute;
+  inset: -6px -12px;
+  border: 3px solid #D92525;
+  border-radius: 50% 45% 55% 40% / 40% 55% 45% 50%;
+  transform: rotate(-3deg);
+  pointer-events: none;
+  box-shadow: 0 0 2px rgba(217, 37, 37, 0.4);
+}
+
+/* Red Hand-Drawn Marker Underline */
+.red-marker-line {
+  position: relative;
+  display: inline-block;
+}
+.red-marker-line::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background-color: #D92525;
+  border-radius: 2px;
+  transform: rotate(-1deg);
+}
+
+/* Scrapbook Tape Accents */
+.tape-effect {
+  position: relative;
+}
+.tape-effect::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 90px;
+  height: 24px;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(4px);
+  border-left: 2px dashed rgba(200, 195, 185, 0.8);
+  border-right: 2px dashed rgba(200, 195, 185, 0.8);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  z-index: 20;
+  pointer-events: none;
+}
+
+.tape-amber::before {
+  background-color: rgba(255, 159, 28, 0.6);
+}
+.tape-red::before {
+  background-color: rgba(217, 37, 37, 0.6);
+}
+.tape-kraft::before {
+  background-color: rgba(210, 201, 185, 0.75);
+}
+
+/* Light Polaroid Card Effect */
+.polaroid-card-light {
+  background: #FFFFFF;
+  padding: 12px 12px 36px 12px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.25), 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+.polaroid-card-light:hover {
+  transform: translateY(-6px) scale(1.02) rotate(0deg) !important;
+  box-shadow: 0 24px 45px -10px rgba(0, 0, 0, 0.35);
+  z-index: 40 !important;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #E6E1D7;
+}
+::-webkit-scrollbar-thumb {
+  background: #B5AFA3;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D92525;
+}

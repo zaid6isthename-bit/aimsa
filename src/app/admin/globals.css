@@ -1,0 +1,192 @@
+@import "tailwindcss";
+
+/* Admin-specific overrides */
+body {
+  background-color: #E6E1D7;
+  color: #121110;
+}
+
+/* Font utilities (from public site) */
+.font-syne { font-family: var(--font-syne); }
+.font-sans { font-family: var(--font-inter); }
+.font-handwriting { font-family: var(--font-caveat); }
+.font-mono-tech { font-family: var(--font-space); }
+
+/* Crumpled Paper Background (from public site) */
+.paper-crumpled-bg {
+  background-color: #E6E1D7;
+  background-image:
+    radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.45) 0%, rgba(210, 204, 192, 0.6) 100%),
+    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 100% 100%, 32px 32px, 32px 32px;
+  color: #121110;
+}
+
+/* Red Hand-Drawn Marker Underline (from public site) */
+.red-marker-line {
+  position: relative;
+  display: inline-block;
+}
+.red-marker-line::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background-color: #D92525;
+  border-radius: 2px;
+  transform: rotate(-1deg);
+}
+
+/* Scrapbook Tape Accents (from public site) */
+.tape-effect { position: relative; }
+.tape-effect::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 90px;
+  height: 24px;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(4px);
+  border-left: 2px dashed rgba(200, 195, 185, 0.8);
+  border-right: 2px dashed rgba(200, 195, 185, 0.8);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  z-index: 20;
+  pointer-events: none;
+}
+
+/* Admin sidebar warm dark theme */
+.admin-sidebar {
+  background-color: #1A1918;
+  color: #FAF8F5;
+}
+.admin-sidebar .nav-active {
+  background-color: #D92525;
+  color: white;
+}
+.admin-sidebar .nav-item:hover {
+  background-color: rgba(217, 37, 37, 0.15);
+  color: #FAF8F5;
+}
+
+/* Admin cards match public cards */
+.admin-card {
+  background: #FAF8F5;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Admin buttons */
+.btn-primary {
+  background-color: #D92525;
+  color: white;
+  font-family: var(--font-space);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.75rem;
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  transition: background-color 0.2s;
+}
+.btn-primary:hover { background-color: #b81e1e; }
+
+.btn-secondary {
+  background-color: transparent;
+  color: #121110;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  font-family: var(--font-space);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.75rem;
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  transition: all 0.2s;
+}
+.btn-secondary:hover {
+  background-color: #121110;
+  color: white;
+}
+
+/* Admin inputs */
+.admin-input {
+  width: 100%;
+  padding: 0.625rem 0.75rem;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  font-family: var(--font-space);
+  font-size: 0.875rem;
+  background: white;
+  color: #121110;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.admin-input:focus {
+  outline: none;
+  border-color: #D92525;
+  box-shadow: 0 0 0 2px rgba(217, 37, 37, 0.15);
+}
+
+/* Admin tables */
+.admin-table {
+  width: 100%;
+  background: #FAF8F5;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.admin-table thead {
+  background: #121110;
+  color: #FAF8F5;
+}
+.admin-table th {
+  padding: 0.75rem 1rem;
+  font-family: var(--font-space);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  text-align: left;
+}
+.admin-table td {
+  padding: 0.75rem 1rem;
+  font-family: var(--font-space);
+  font-size: 0.8rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+.admin-table tr:hover td {
+  background: rgba(217, 37, 37, 0.03);
+}
+
+/* Status badges */
+.badge-draft { background: #F3E8D0; color: #8B6914; }
+.badge-published { background: #D4EDDA; color: #155724; }
+.badge-scheduled { background: #D1ECF1; color: #0C5460; }
+.badge-archived { background: #E2E3E5; color: #383D41; }
+.badge-active { background: #D4EDDA; color: #155724; }
+.badge-inactive { background: #F8D7DA; color: #721C24; }
+.badge-upcoming { background: #D1ECF1; color: #0C5460; }
+.badge-ongoing { background: #FFF3CD; color: #856404; }
+.badge-completed { background: #D4EDDA; color: #155724; }
+
+/* Modal */
+.admin-modal-overlay {
+  background: rgba(18, 17, 16, 0.7);
+  backdrop-filter: blur(4px);
+}
+.admin-modal-content {
+  background: #FAF8F5;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #E6E1D7; }
+::-webkit-scrollbar-thumb { background: #B5AFA3; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #D92525; }
