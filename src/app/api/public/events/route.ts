@@ -22,7 +22,13 @@ export async function GET(request: Request) {
       orderBy: { date: 'desc' },
     });
 
-    return NextResponse.json({ events });
+    const parsed = events.map((e) => ({
+      ...e,
+      organizers: typeof e.organizers === 'string' ? e.organizers.split(',').map((s) => s.trim()).filter(Boolean) : e.organizers ?? [],
+      galleryImages: typeof e.galleryImages === 'string' ? (() => { try { return JSON.parse(e.galleryImages); } catch { return []; } })() : e.galleryImages ?? [],
+    }));
+
+    return NextResponse.json({ events: parsed });
   } catch (error) {
     console.error('Failed to fetch public events:', error);
     return NextResponse.json(
