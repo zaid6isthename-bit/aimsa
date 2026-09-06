@@ -17,7 +17,12 @@ export async function GET(request: Request) {
       orderBy: { displayOrder: 'asc' },
     });
 
-    return NextResponse.json({ members });
+    const parsed = members.map((m) => ({
+      ...m,
+      contributions: typeof m.contributions === 'string' ? (() => { try { return JSON.parse(m.contributions); } catch { return []; } })() : m.contributions ?? [],
+    }));
+
+    return NextResponse.json({ members: parsed });
   } catch (error) {
     console.error('Failed to fetch team members:', error);
     return NextResponse.json(
