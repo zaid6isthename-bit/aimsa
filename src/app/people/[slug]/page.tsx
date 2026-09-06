@@ -8,21 +8,23 @@ import { EditorialHeader } from '@/components/ui/EditorialHeader';
 import { EditorialFooter } from '@/components/ui/EditorialFooter';
 import { ArrowLeft, ArrowRight, Quote, CheckCircle2, Mail } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from '@/components/ui/SocialIcons';
+import { TEAM_MEMBERS } from '@/data/team';
 
 export default function MemberProfilePage() {
   const params = useParams();
   const slug = params.slug as string;
-  const [members, setMembers] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [members, setMembers] = useState<any[]>(TEAM_MEMBERS);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     fetch('/api/public/team')
       .then(r => r.json())
       .then(data => {
-        setMembers(data.members || []);
-        setLoading(false);
+        if (data.members && data.members.length > 0) {
+          setMembers(data.members);
+        }
       })
-      .catch(() => setLoading(false));
+      .catch(() => {});
   }, []);
 
   if (loading) {
@@ -88,13 +90,18 @@ export default function MemberProfilePage() {
                   />
                 </div>
 
-                <div className="mt-4 text-center">
+                <div className="mt-4 text-center border-t border-black/10 pt-3">
                   <p className="font-mono-tech text-xs text-[#D92525] font-bold uppercase tracking-widest">
                     {member.role}
                   </p>
-                  <p className="font-mono-tech text-[11px] text-neutral-600 mt-1">
+                  <p className="font-mono-tech text-[11px] text-neutral-600 mt-0.5 font-semibold">
                     {member.year}
                   </p>
+                  {member.quote && (
+                    <p className="font-handwriting text-base text-neutral-800 mt-2 px-1 leading-tight">
+                      "{member.quote}"
+                    </p>
+                  )}
                 </div>
               </div>
 
@@ -140,24 +147,28 @@ export default function MemberProfilePage() {
                 </p>
               </div>
 
-              <div className="border-t border-b border-black/15 py-6">
-                <h3 className="font-syne font-bold text-lg text-[#121110] uppercase mb-2">
-                  BIOGRAPHY & AIMSA ROLE
-                </h3>
-                <p className="font-mono-tech text-xs sm:text-sm text-neutral-800 leading-relaxed">
+              {/* Biography Card */}
+              <div className="border border-black/15 bg-white/70 p-6 rounded-xs shadow-sm space-y-3">
+                <div className="flex items-center gap-2 text-[#D92525]">
+                  <div className="w-2 h-2 rounded-full bg-[#D92525]" />
+                  <h3 className="font-syne font-black text-base uppercase tracking-wider text-[#121110]">
+                    BIOGRAPHY & AIMSA ROLE
+                  </h3>
+                </div>
+                <p className="font-mono-tech text-xs sm:text-sm text-neutral-800 leading-relaxed font-medium">
                   {member.bio}
                 </p>
               </div>
 
               {/* Quote */}
               {member.quote && (
-                <div className="p-6 bg-[#F2EDE2] border-l-4 border-[#D92525] rounded-r-xs">
+                <div className="p-6 bg-[#F2EDE2] border-l-4 border-[#D92525] rounded-r-xs shadow-xs">
                   <Quote className="w-5 h-5 text-[#D92525] mb-2" />
                   <p className="font-handwriting text-2xl text-neutral-900 leading-snug">
                     "{member.quote}"
                   </p>
                   <p className="font-mono-tech text-[10px] text-neutral-500 uppercase mt-2 font-bold">
-                    — {member.name}
+                    — {member.name} ({member.role})
                   </p>
                 </div>
               )}

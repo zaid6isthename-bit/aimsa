@@ -7,20 +7,22 @@ import { EditorialHeader } from '@/components/ui/EditorialHeader';
 import { EditorialFooter } from '@/components/ui/EditorialFooter';
 import { ArrowUpRight, UserCheck, ShieldCheck, Sparkles } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from '@/components/ui/SocialIcons';
+import { TEAM_MEMBERS } from '@/data/team';
 
 export default function PeoplePage() {
   const [selectedCategory, setSelectedCategory] = useState<string>('ALL');
-  const [members, setMembers] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [members, setMembers] = useState<any[]>(TEAM_MEMBERS);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     fetch('/api/public/team')
       .then(r => r.json())
       .then(data => {
-        setMembers(data.members || []);
-        setLoading(false);
+        if (data.members && data.members.length > 0) {
+          setMembers(data.members);
+        }
       })
-      .catch(() => setLoading(false));
+      .catch(() => {});
   }, []);
 
   const categories = ['ALL', 'Leadership', 'Core Team', 'Department Leads', 'Executive Committee'];
@@ -116,6 +118,11 @@ export default function PeoplePage() {
                     <p className="font-mono-tech text-[11px] text-neutral-500">
                       {member.year}
                     </p>
+                    {member.bio && (
+                      <p className="font-mono-tech text-[11px] text-neutral-700 line-clamp-2 mt-1.5 leading-snug">
+                        {member.bio}
+                      </p>
+                    )}
                   </div>
                 </div>
 
