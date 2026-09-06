@@ -164,7 +164,7 @@ export default function IndividualEventPage() {
               ORGANIZED & PRODUCED BY
             </h3>
             <div className="flex flex-wrap gap-2 font-mono-tech text-xs">
-              {event.organizers.map((org: string) => (
+              {(Array.isArray(event.organizers) ? event.organizers : typeof event.organizers === 'string' ? event.organizers.split(',').map((s: string) => s.trim()).filter(Boolean) : []).map((org: string) => (
                 <span key={org} className="px-3 py-1 bg-black/5 border border-black/10 rounded text-[#121110] font-bold">
                   {org}
                 </span>

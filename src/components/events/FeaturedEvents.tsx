@@ -186,7 +186,7 @@ export const FeaturedEvents: React.FC = () => {
                     ORGANIZED BY
                   </h4>
                   <div className="flex flex-wrap gap-2">
-                    {selectedEvent.organizers.map((org: string) => (
+                    {(Array.isArray(selectedEvent.organizers) ? selectedEvent.organizers : typeof selectedEvent.organizers === 'string' ? selectedEvent.organizers.split(',').map((s: string) => s.trim()).filter(Boolean) : []).map((org: string) => (
                       <span
                         key={org}
                         className="px-3 py-1 bg-white/5 border border-white/10 rounded-lg font-mono-tech text-xs uppercase text-neutral-200"
