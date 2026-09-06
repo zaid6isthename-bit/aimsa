@@ -97,7 +97,7 @@ export default function MainEventsPage() {
             <Link
               key={cat.id}
               href={cat.href}
-              className="group bg-[#F9F7F1] border border-black/15 p-8 rounded-xs shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between hover:border-[#D92525] relative"
+              className="group bg-[#F9F7F1] border border-black/15 p-8 rounded-xs shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between hover:border-[#D92525] relative overflow-hidden"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
@@ -107,7 +107,7 @@ export default function MainEventsPage() {
                   {cat.icon}
                 </div>
 
-                <h3 className="font-syne font-black text-3xl text-[#121110] group-hover:text-[#D92525] transition-colors uppercase mb-2">
+                <h3 className="font-syne font-black text-2xl text-[#121110] group-hover:text-[#D92525] transition-colors uppercase mb-2 break-words leading-tight">
                   {cat.name}
                 </h3>
                 <p className="font-mono-tech text-xs text-[#D92525] uppercase font-bold tracking-wider mb-4">
